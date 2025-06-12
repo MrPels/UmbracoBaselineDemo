@@ -8,14 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Examine" Version="3.7.1" />
-    <PackageReference Include="Umbraco.Cms" Version="15.4.3" />
+    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-    <PackageReference Include="Umbraco.Forms" Version="15.1.2" />
-    <PackageReference Include="uSync" Version="15.1.9" />
+    <PackageReference Include="Umbraco.Forms" Version="16.0.0" />
+    <PackageReference Include="uSync" Version="16.0.0" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>
 
