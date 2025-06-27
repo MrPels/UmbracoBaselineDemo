@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@{
+    var formId = Model.Content.Value<Guid>("formPicker"); // Ensure 'formPicker' is your alias
+}
+
+@if (formId != Guid.Empty)
+{
+    @(await Component.InvokeAsync("RenderForm", new
+    {
+        formId = @formId,
+        includeScripts = false
+    }))
+}
+else
+{
+    <p>No form selected.</p>
+}
