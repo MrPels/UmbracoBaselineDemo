@@ -1,0 +1,22 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable Central Package Management -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- Enable transitive pinning for better security and reproducibility -->
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <!-- Central package version definitions -->
+  <ItemGroup>
+    <!-- Umbraco packages -->
+    <PackageVersion Include="Umbraco.Cms" Version="16.2.0" />
+    <PackageVersion Include="Umbraco.Forms" Version="16.1.0" />
+    
+    <!-- Third-party packages -->
+    <PackageVersion Include="Examine" Version="3.7.1" />
+    <PackageVersion Include="uSync" Version="16.0.4" />
+    
+    <!-- Microsoft packages -->
+    <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+  </ItemGroup>
+</Project>
