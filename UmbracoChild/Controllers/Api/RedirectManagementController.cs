@@ -2,6 +2,7 @@
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace UmbracoChild.Controllers.Api
 {
@@ -32,7 +33,6 @@ namespace UmbracoChild.Controllers.Api
         [NonAction]
         private void ProcessRedirectsRecursive(IPublishedContent parent, List<RedirectUmbracoModel> redirects)
         {
-
             if (parent is ISharedRedirect)
             {
                 ISharedRedirect? sharedRedirectSettings = parent as ISharedRedirect;
@@ -53,7 +53,6 @@ namespace UmbracoChild.Controllers.Api
                         Edit = $"/umbraco/section/content/workspace/document/edit/{parent.Key}/invariant/tab/redirect"
                     });
                 }
-
             }
 
             if (parent.Children() != null)

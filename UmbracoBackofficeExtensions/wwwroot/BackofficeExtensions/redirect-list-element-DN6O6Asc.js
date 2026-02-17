@@ -1,9 +1,9 @@
 import { UmbElementMixin as b } from "@umbraco-cms/backoffice/element-api";
 import { LitElement as n, html as i, css as h, property as d, customElement as p } from "@umbraco-cms/backoffice/external/lit";
-var f = Object.defineProperty, m = Object.getOwnPropertyDescriptor, o = (e, a, r, u) => {
-  for (var t = u > 1 ? void 0 : u ? m(a, r) : a, s = e.length - 1, c; s >= 0; s--)
-    (c = e[s]) && (t = (u ? c(a, r, t) : c(t)) || t);
-  return u && t && f(a, r, t), t;
+var f = Object.defineProperty, m = Object.getOwnPropertyDescriptor, c = (e, u, r, a) => {
+  for (var t = a > 1 ? void 0 : a ? m(u, r) : u, s = e.length - 1, o; s >= 0; s--)
+    (o = e[s]) && (t = (a ? o(u, r, t) : o(t)) || t);
+  return a && t && f(u, r, t), t;
 };
 let l = class extends b(n) {
   constructor() {
@@ -72,18 +72,18 @@ l.styles = [
 		}
 	`
 ];
-o([
+c([
   d({ attribute: !1 })
 ], l.prototype, "redirects", 2);
-o([
+c([
   d()
 ], l.prototype, "title", 2);
-l = o([
-  p("semler-redirects-dashboard")
+l = c([
+  p("custom-redirects-dashboard")
 ], l);
 const y = l;
 export {
-  l as Semler_Redirects_Dashboard,
+  l as Custom_Redirects_Dashboard,
   y as default
 };
-//# sourceMappingURL=redirect-list-element-CqM6FyN4.js.map
+//# sourceMappingURL=redirect-list-element-DN6O6Asc.js.map

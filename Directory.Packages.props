@@ -16,5 +16,6 @@
     <PackageVersion Include="uSync" Version="17.0.2" />
     <!-- Microsoft packages -->
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.3" />
   </ItemGroup>
 </Project>

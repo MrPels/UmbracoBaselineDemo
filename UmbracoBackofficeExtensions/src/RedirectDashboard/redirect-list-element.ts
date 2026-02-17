@@ -1,8 +1,8 @@
 ﻿import { UmbElementMixin } from "@umbraco-cms/backoffice/element-api";
 import { LitElement, html, css, customElement, property } from "@umbraco-cms/backoffice/external/lit";
 
-@customElement('semler-redirects-dashboard')
-export class Semler_Redirects_Dashboard extends UmbElementMixin(LitElement) {
+@customElement('custom-redirects-dashboard')
+export class Custom_Redirects_Dashboard extends UmbElementMixin(LitElement) {
     constructor() {
         super();
     }
@@ -92,10 +92,10 @@ export class Semler_Redirects_Dashboard extends UmbElementMixin(LitElement) {
     ];
 }
 
-export default Semler_Redirects_Dashboard;
+export default Custom_Redirects_Dashboard;
 
 declare global {
     interface HtmlElementTagNameMap {
-        'Custom-Redirects-Dashboard': Semler_Redirects_Dashboard
+        'Custom-Redirects-Dashboard': Custom_Redirects_Dashboard
     }
 }

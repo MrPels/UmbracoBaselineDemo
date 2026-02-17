@@ -1,4 +1,4 @@
-const SECTION_ALIAS = "semler.redirects.section";
+const SECTION_ALIAS = "custom.redirects.section";
 //const SECTION_VIEW_ALIAS = "semler.redirects.createview";
 export const manifests: Array<UmbExtensionManifest> = [
     {

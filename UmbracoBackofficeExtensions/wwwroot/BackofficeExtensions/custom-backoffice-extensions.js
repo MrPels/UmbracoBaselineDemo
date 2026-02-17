@@ -1,8 +1,8 @@
-import { UMB_DOCUMENT_ENTITY_TYPE as t } from "@umbraco-cms/backoffice/document";
-const e = "semler.redirects.section", i = [
+import { UMB_DOCUMENT_ENTITY_TYPE as e } from "@umbraco-cms/backoffice/document";
+const t = "custom.redirects.section", i = [
   {
     type: "section",
-    alias: e,
+    alias: t,
     name: "Custom Redirects",
     weight: 10,
     meta: {
@@ -15,7 +15,7 @@ const e = "semler.redirects.section", i = [
     name: "Custom Redirects Dashboard",
     alias: "custom.redirects.dashboard",
     elementName: "custom-redirects-dashboard",
-    element: () => import("./redirect-list-element-CqM6FyN4.js"),
+    element: () => import("./redirect-list-element-DN6O6Asc.js"),
     weight: -10,
     meta: {
       label: "custom-redirects",
@@ -24,7 +24,7 @@ const e = "semler.redirects.section", i = [
     conditions: [
       {
         alias: "Umb.Condition.SectionAlias",
-        match: e
+        match: t
       }
     ]
   }
@@ -34,7 +34,7 @@ const e = "semler.redirects.section", i = [
     kind: "icon",
     alias: "Custom.EntitySign.Document.HasRedirect",
     name: "Has Redirect Document Entity Sign",
-    forEntityTypes: [t],
+    forEntityTypes: [e],
     forEntityFlags: ["Umb.HasRedirect"],
     weight: 900,
     meta: {

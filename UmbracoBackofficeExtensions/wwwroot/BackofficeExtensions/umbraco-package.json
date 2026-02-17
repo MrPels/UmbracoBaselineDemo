@@ -1,0 +1,14 @@
+{
+  "id": "BackofficeExtensions",
+  "name": "BackofficeExtensions",
+  "version": "0.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Backoffice Extensions Bundle",
+      "alias": "BackOfficeExtensions.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/BackofficeExtensions/custom-backoffice-extensions.js"
+    }
+  ]
+}
