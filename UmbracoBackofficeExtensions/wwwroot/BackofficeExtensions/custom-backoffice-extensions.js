@@ -1,8 +1,8 @@
-import { UMB_DOCUMENT_ENTITY_TYPE as e } from "@umbraco-cms/backoffice/document";
-const t = "custom.redirects.section", i = [
+import { UMB_DOCUMENT_ENTITY_TYPE as t } from "@umbraco-cms/backoffice/document";
+const e = "custom.redirects.section", i = [
   {
     type: "section",
-    alias: t,
+    alias: e,
     name: "Custom Redirects",
     weight: 10,
     meta: {
@@ -24,30 +24,30 @@ const t = "custom.redirects.section", i = [
     conditions: [
       {
         alias: "Umb.Condition.SectionAlias",
-        match: t
+        match: e
       }
     ]
   }
-], a = [
+], s = [
   {
     type: "entitySign",
     kind: "icon",
     alias: "Custom.EntitySign.Document.HasRedirect",
     name: "Has Redirect Document Entity Sign",
-    forEntityTypes: [e],
+    forEntityTypes: [t],
     forEntityFlags: ["Umb.HasRedirect"],
     weight: 900,
     meta: {
-      iconName: "material-outlined-arrow_outward",
+      iconName: "icon-arrow-up",
       label: "Has Redirect",
-      iconColorAlias: "text"
+      iconColorAlias: "warning"
     }
   }
-], o = [
+], n = [
   ...i,
-  ...a
+  ...s
 ];
 export {
-  o as manifests
+  n as manifests
 };
 //# sourceMappingURL=custom-backoffice-extensions.js.map

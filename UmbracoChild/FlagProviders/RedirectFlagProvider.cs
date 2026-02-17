@@ -32,19 +32,27 @@ namespace UmbracoChild.FlagProviders
 
         public Task PopulateFlagsAsync<TItem>(IEnumerable<TItem> itemViewModels) where TItem : IHasFlags
         {
-            // Collect all IDs upfront to avoid N+1 queries
             List<TItem> items = itemViewModels.ToList();
+
+            // Extract Guid IDs from the actual response model types
             List<Guid> ids = items
-                .OfType<ISharedRedirect>()
-                .Select(x => x.Key)
+                .Select(GetId)
+                .Where(id => id.HasValue)
+                .Select(id => id!.Value)
                 .ToList();
+
+            if (ids.Count == 0)
+            {
+                return Task.CompletedTask;
+            }
 
             Dictionary<Guid, IContent> contentItems = _contentService.GetByIds(ids)
                 .ToDictionary(c => c.Key);
 
             foreach (TItem item in items)
             {
-                if (item is ISharedRedirect identifiable && contentItems.TryGetValue(identifiable.Key, out var content))
+                Guid? itemId = GetId(item);
+                if (itemId.HasValue && contentItems.TryGetValue(itemId.Value, out var content))
                 {
                     string? redirectValue = content.GetValue<string>(RedirectPropertyAlias);
                     bool disableRedirect = content.GetValue<bool>(DisableRedirectPropertyAlias);
@@ -58,5 +66,13 @@ namespace UmbracoChild.FlagProviders
 
             return Task.CompletedTask;
         }
+
+        private static Guid? GetId<TItem>(TItem item) => item switch
+        {
+            DocumentTreeItemResponseModel tree => tree.Id,
+            DocumentCollectionResponseModel collection => collection.Id,
+            DocumentItemResponseModel docItem => docItem.Id,
+            _ => null,
+        };
     }
 }

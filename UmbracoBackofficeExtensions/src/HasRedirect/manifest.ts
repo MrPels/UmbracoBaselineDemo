@@ -10,9 +10,9 @@ export const manifests: Array<UmbExtensionManifest> = [
         forEntityFlags: ["Umb.HasRedirect"],
         weight: 900,
         meta: {
-            iconName: "material-outlined-arrow_outward",
+            iconName: "icon-arrow-up",
             label: "Has Redirect",
-            iconColorAlias: "text",
+            iconColorAlias: "warning",
         },
     },
 ];
