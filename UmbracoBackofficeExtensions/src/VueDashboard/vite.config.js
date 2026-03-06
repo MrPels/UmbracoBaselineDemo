@@ -10,8 +10,7 @@ export default defineConfig({
                     isCustomElement: (tag) =>
                         tag.startsWith('uui-') || tag.startsWith('umb-'),
                 },
-            },
-            //customElement: true,
+            }
         }),
     ],
     build: {

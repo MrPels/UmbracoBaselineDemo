@@ -46,9 +46,11 @@
 
         <uui-box headline="Hurtige handlinger" style="margin-top: 16px;">
             <uui-button look="primary"
-                        color="positive"
-                        label="Opdater"
-                        @click="refreshAll" />
+                    color="positive"
+                    label="Opdater"
+                    v-on:click="refreshAll" />
+
+            <semler-button></semler-button>
         </uui-box>
 
         <p v-if="error" style="color: red;">{{ error }}</p>
@@ -59,11 +61,17 @@
     import { defineComponent } from 'vue'
     import { apiGet, notify } from '../services/umbraco'
 
+    import Button from './Button.vue'
+
     export default defineComponent({
         name: 'BrandDashboard',
 
         // Host-elementet (custom element) injiceres fra createApp().provide()
         inject: ['hostElement'],
+
+        components: {
+            'semler-button': Button
+        },
 
         data() {
             return {
@@ -180,6 +188,7 @@
 <style>
     .brand-dashboard {
         padding: 20px;
+        background-color: aqua;
     }
 
     .dashboard-grid {

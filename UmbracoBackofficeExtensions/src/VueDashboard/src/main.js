@@ -1,4 +1,8 @@
-﻿import { createApp } from 'vue'
+﻿// Patch SKAL importeres FØR vue, så createElement er patched
+// inden Vue's runtime initialiseres
+import './patch-create-element.js'
+
+import { createApp } from 'vue'
 import BrandDashboard from './components/BrandDashboard.vue'
 
 // Manuelt custom element der wrapper Vue-appen.
