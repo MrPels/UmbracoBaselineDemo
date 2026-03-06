@@ -5129,15 +5129,20 @@ function Hf(e, t, n, r, s, o) {
     e.error ? (_e(), xe("p", jf, Re(e.error), 1)) : fn("", !0)
   ]);
 }
-const Nf = /* @__PURE__ */ Jo(xf, [["render", Hf]]);
-class Lf extends HTMLElement {
+const Nf = /* @__PURE__ */ Jo(xf, [["render", Hf]]), Lf = ".brand-dashboard{padding:20px;background-color:#0ff}.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}.stat-value{font-size:2rem;font-weight:700;color:var(--uui-color-interactive)}.stat-label{font-size:.875rem;color:var(--uui-color-text-alt);margin-top:4px}.btn.btn-primary{line-height:1;display:flex;gap:var(--uii-size-1, 3px);align-items:center}";
+class Vf extends HTMLElement {
   connectedCallback() {
-    const t = document.createElement("div");
-    this.appendChild(t), this._app = ff(Nf), this._app.provide("hostElement", this), this._app.mount(t), console.log("[Vue Dashboard] Mounted semler-brand-dashboard");
+    const t = this.getRootNode();
+    if (t && !t.querySelector("#vue-dashboard-styles")) {
+      const r = document.createElement("style");
+      r.id = "vue-dashboard-styles", r.textContent = Lf, t instanceof ShadowRoot ? t.appendChild(r) : document.head.appendChild(r);
+    }
+    const n = document.createElement("div");
+    this.appendChild(n), this._app = ff(Nf), this._app.provide("hostElement", this), this._app.mount(n), console.log("[Vue Dashboard] Mounted semler-brand-dashboard");
   }
   disconnectedCallback() {
     this._app && (this._app.unmount(), this._app = null), this.innerHTML = "", console.log("[Vue Dashboard] Unmounted semler-brand-dashboard");
   }
 }
-customElements.define("semler-brand-dashboard", Lf);
+customElements.define("semler-brand-dashboard", Vf);
 //# sourceMappingURL=vue-dashboard.js.map

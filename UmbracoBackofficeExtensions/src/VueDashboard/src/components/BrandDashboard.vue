@@ -185,27 +185,4 @@
     })
 </script>
 
-<style>
-    .brand-dashboard {
-        padding: 20px;
-        background-color: aqua;
-    }
-
-    .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 16px;
-    }
-
-    .stat-value {
-        font-size: 2rem;
-        font-weight: bold;
-        color: var(--uui-color-interactive);
-    }
-
-    .stat-label {
-        font-size: 0.875rem;
-        color: var(--uui-color-text-alt);
-        margin-top: 4px;
-    }
-</style>
+<!-- Styles er i src/styles.css og injiceres via main.js -->
