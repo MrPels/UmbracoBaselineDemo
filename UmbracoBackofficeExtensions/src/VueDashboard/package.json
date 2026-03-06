@@ -1,0 +1,19 @@
+{
+  "name": "vue-dashboard",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "copy-manifest": "copy umbraco-package.json ..\\..\\wwwroot\\BackofficeExtensions\\umbraco-package.json",
+    "dev": "npm run copy-manifest && vite build --watch",
+    "build": "npm run copy-manifest && vite build"
+  },
+  "dependencies": {
+    "vue": "3.5.29"
+  },
+  "devDependencies": {
+    "@umbraco-cms/backoffice": "^17.2.1",
+    "@vitejs/plugin-vue": "6.0.4",
+    "vite": "7.3.1"
+  }
+}
