@@ -5,6 +5,13 @@
     <Nullable>enable</Nullable>
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="uSync\v17\ContentTypes\**" />
+    <Compile Remove="uSync\v17\ContentTypes\**" />
+    <Content Remove="uSync\v17\ContentTypes\**" />
+    <EmbeddedResource Remove="uSync\v17\ContentTypes\**" />
+    <None Remove="uSync\v17\ContentTypes\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Examine" />
@@ -21,10 +28,6 @@
     <PackageReference Include="Umbraco.Forms" />
     <PackageReference Include="uSync" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="uSync\v17\ContentTypes\" />
   </ItemGroup>
 
   <ItemGroup>
