@@ -5,17 +5,6 @@
     <Nullable>enable</Nullable>
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Remove="Views\Components\_ViewImports.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\ArticleBlock\Default.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\HeadlineBlock\Default.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\ImageBlock\Default.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\StageBlock\Default.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\TextBlock\Default.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\Components\_ViewImports.cshtml" />
-    <AdditionalFiles Remove="Views\Shared\_Layout.cshtml" />
-    <AdditionalFiles Remove="Views\_ViewStart.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Examine" />
