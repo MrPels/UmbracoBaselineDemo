@@ -27,6 +27,10 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent CanonicalLink { get; }
 
+		/// <summary>lockAiUpdates</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
+		bool LockAiUpdates { get; }
+
 		/// <summary>metaDescription</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -109,6 +113,17 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetCanonicalLink(ISharedSeo that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "canonicalLink");
+
+		///<summary>
+		/// lockAiUpdates
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
+		[ImplementPropertyType("lockAiUpdates")]
+		public virtual bool LockAiUpdates => GetLockAiUpdates(this, _publishedValueFallback);
+
+		/// <summary>Static getter for lockAiUpdates</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
+		public static bool GetLockAiUpdates(ISharedSeo that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "lockAiUpdates");
 
 		///<summary>
 		/// metaDescription

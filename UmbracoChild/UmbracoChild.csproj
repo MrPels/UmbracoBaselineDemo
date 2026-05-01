@@ -12,7 +12,7 @@
     <EmbeddedResource Remove="uSync\v17\ContentTypes\**" />
     <None Remove="uSync\v17\ContentTypes\**" />
   </ItemGroup>
-
+	
   <ItemGroup>
     <PackageReference Include="Examine" />
     <PackageReference Include="Microsoft.Playwright" />

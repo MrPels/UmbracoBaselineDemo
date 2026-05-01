@@ -1,7 +1,10 @@
 using System.Text.Json;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Models.ContentPublishing;
 using Umbraco.Cms.Core.Services;
+using Umbraco.Cms.Core.Services.OperationStatus;
 
 // Modellen for AI'ens svar
 public class SeoResponse
@@ -17,11 +20,13 @@ public class SeoService
     private readonly Kernel _kernel; // Vi gemmer hele motoren
     private readonly IChatCompletionService _chatService; // Vi henter chat-delen specifikt
     private readonly IContentService _contentService;          // Fra Umbraco
+    private readonly IContentPublishingService _contentPublishingService; // Til publish i Umbraco 17
     private readonly ILogger<SeoService> _logger;              // Til fejlfinding på Mac
 
     private const string SeoSystemPrompt = @"
         Du er en senior SEO-specialist. Din opgave er at analysere renderet HTML-indhold og returnere optimeret metadata.
         Du skal returnere et JSON-objekt med følgende felter:
+        - 'metaTitle': En optimeret sidetitel på dansk (maks 60 tegn). Skal være præcis, unik og indeholde det vigtigste søgeord.
         - 'metaDescription': En fængende beskrivelse på dansk (maks 155 tegn).
         - 'jsonLd': Et komplet og validt Schema.org objekt (JSON-LD) baseret på sidens type (f.eks. Article, Product eller FAQ).
         Regler: Svar KUN med JSON. Brug et professionelt dansk sprog.";
@@ -30,15 +35,14 @@ public class SeoService
         PlaywrightCrawlerService crawlerService,
         Kernel kernel,
         IContentService contentService,
+        IContentPublishingService contentPublishingService,
         ILogger<SeoService> logger)
     {
         _crawlerService = crawlerService;
         _kernel = kernel;
-
-        // Vi henter specifikt tekst-modellen
         _chatService = kernel.GetRequiredService<IChatCompletionService>("SeoTextService");
-
         _contentService = contentService;
+        _contentPublishingService = contentPublishingService;
         _logger = logger;
     }
 
@@ -80,14 +84,18 @@ public class SeoService
                 {
                     content.SetValue("MetaTitle", seoData.MetaTitle);
                     content.SetValue("MetaDescription", seoData.MetaDescription);
-                    
+
                     // Vi gemmer JSON-LD som en streng
                     var jsonLdString = JsonSerializer.Serialize(seoData.JsonLd);
                     content.SetValue("SchemaMarkup", jsonLdString);
 
-                    // raiseEvents: false er KRITISK for at undgå uendelige loops!
-                    // _contentService.Save(content, raiseEvents: false);
+                    // SaveAndPublish() publicerer med det samme.
+                    // Guard i SeoPublishHandler forhindrer uendelig loop.
                     _contentService.Save(content);
+
+                    // Publish via IContentPublishingService (Umbraco 17 API)
+                    var publishModel = new CulturePublishScheduleModel { Culture = "*" };
+                    await _contentPublishingService.PublishAsync(content.Key, new[] { publishModel }, Constants.Security.SuperUserKey);
                     _logger.LogInformation("✅ SEO data gemt succesfuldt for '{Name}'", content.Name);
                 }
             }

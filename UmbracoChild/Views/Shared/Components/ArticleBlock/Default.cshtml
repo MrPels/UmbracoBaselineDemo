@@ -1,3 +1,24 @@
 ﻿@model ArticleBlock
 
-<h1>article block todo</h1>
+<section class="article-block">
+    @if (Model.Articles != null)
+    {
+        @foreach (var item in Model.Articles)
+        {
+            var article = item.Content as ArticleDataBlock;
+            if (article != null)
+            {
+                <article>
+                    @if (!string.IsNullOrEmpty(article.Title))
+                    {
+                        <h2>@article.Title</h2>
+                    }
+                    @if (article.Text != null)
+                    {
+                        @article.Text
+                    }
+                </article>
+            }
+        }
+    }
+</section>

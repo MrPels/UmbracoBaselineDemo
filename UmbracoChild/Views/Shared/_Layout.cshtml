@@ -12,23 +12,5 @@
     <main role="main">
         @RenderBody()
     </main>
-
-@*     <environment include="Local">
-        <script type="module" src="http://localhost:5173/dist/src/solutions/audi/main.js"></script>
-        <script type="module" src="http://localhost:5173/dist/src/solutions/audi/global.js"></script>
-    </environment>
-    <environment exclude="Local">
-        <script type="module" src="@CacheBustHelper.GetBundleFromManifest("/dist/.vite/manifest.json", "src/solutions/audi/main.js", "/dist/")"></script>
-        <script type="module" src="@CacheBustHelper.GetBundleFromManifest("/dist/.vite/manifest.json", "src/solutions/audi/global.js", "/dist/")"></script>
-    </environment> *@
-
-@*     @if (IsSectionDefined("Scripts"))
-    {
-        @RenderSection("Scripts")
-    }
-
-    @await Component.InvokeAsync("GlobalScripts", new { position = "bottomBody" })
-
-    @await Component.InvokeAsync("UmbracoFormsScripts") *@
 </body>
 </html>

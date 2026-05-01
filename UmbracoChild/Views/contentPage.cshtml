@@ -1,7 +1,4 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@{
-	Layout = null;
-}
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentPage>
 
-@await Html.GetBlockGridHtmlAsync(Model, "blockContent")
+@await Html.GetBlockGridHtmlAsync(Model.BlockContent)

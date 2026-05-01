@@ -1,3 +1,8 @@
 ﻿@model HeadlineBlock
 
-<h1>headline block todo</h1>
+<section class="headline-block">
+    @if (!string.IsNullOrEmpty(Model.Headline))
+    {
+        <h1>@Model.Headline</h1>
+    }
+</section>
