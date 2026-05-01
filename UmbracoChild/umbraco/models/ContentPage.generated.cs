@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Content Page</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel
+	public partial class ContentPage : PublishedContentModel, ISharedRedirect, ISharedSeo
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -56,5 +56,98 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("blockContent")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel BlockContent => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(_publishedValueFallback, "blockContent");
+
+		///<summary>
+		/// disableRedirect
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[ImplementPropertyType("disableRedirect")]
+		public virtual bool DisableRedirect => global::Umbraco.Cms.Web.Common.PublishedModels.SharedRedirect.GetDisableRedirect(this, _publishedValueFallback);
+
+		///<summary>
+		/// redirectUrl
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("redirectUrl")]
+		public virtual global::Umbraco.Cms.Core.Models.Link RedirectUrl => global::Umbraco.Cms.Web.Common.PublishedModels.SharedRedirect.GetRedirectUrl(this, _publishedValueFallback);
+
+		///<summary>
+		/// statusCode
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statusCode")]
+		public virtual string StatusCode => global::Umbraco.Cms.Web.Common.PublishedModels.SharedRedirect.GetStatusCode(this, _publishedValueFallback);
+
+		///<summary>
+		/// canonicalLink
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("canonicalLink")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent CanonicalLink => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetCanonicalLink(this, _publishedValueFallback);
+
+		///<summary>
+		/// metaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// MetaTitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaTitle")]
+		public virtual string MetaTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetMetaTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// noFollow
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[ImplementPropertyType("noFollow")]
+		public virtual bool NoFollow => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetNoFollow(this, _publishedValueFallback);
+
+		///<summary>
+		/// noIndex
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[ImplementPropertyType("noIndex")]
+		public virtual bool NoIndex => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetNoIndex(this, _publishedValueFallback);
+
+		///<summary>
+		/// ogDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("ogDescription")]
+		public virtual string OgDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetOgDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// ogImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("ogImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OgImage => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetOgImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// ogTitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("ogTitle")]
+		public virtual string OgTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetOgTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// schemaMarkup
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("schemaMarkup")]
+		public virtual string SchemaMarkup => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetSchemaMarkup(this, _publishedValueFallback);
 	}
 }

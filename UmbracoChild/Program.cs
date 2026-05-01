@@ -3,6 +3,8 @@ using Microsoft.SemanticKernel;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddKernel();
 // // AddKernel registrerer 'Kernel' objektet i din Dependency Injection (DI)
 // builder.Services.AddKernel()
 //     // Model til tekst-opgaver (SEO og JSON Schema)

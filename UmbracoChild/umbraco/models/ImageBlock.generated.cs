@@ -50,14 +50,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// dark bagground: when toggled on, changes the bagground color around the image.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[ImplementPropertyType("darkBagground")]
-		public virtual bool DarkBagground => this.Value<bool>(_publishedValueFallback, "darkBagground");
-
-		///<summary>
-		/// image
+		/// image: An image of any size.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
