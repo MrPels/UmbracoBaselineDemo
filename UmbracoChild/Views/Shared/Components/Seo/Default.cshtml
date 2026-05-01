@@ -1,0 +1,26 @@
+﻿@model SeoViewModel
+<title>@Model.MetaTitle</title>
+
+@if (!string.IsNullOrWhiteSpace(Model.SchemaMarkup))
+{
+    <script type="application/ld+json">
+        @Html.Raw(Model.SchemaMarkup)
+    </script>
+
+}
+
+<meta name="robots" content="@Model.Follow">
+<meta name="robots" content="@Model.Index">
+<meta name="description" content="@Model.MetaDescription" />
+<meta property="og:title" content="@Model.OgTitle" />
+<meta property="og:description" content="@Model.OgDescription" />
+<meta property="og:type" content="Website" />
+@if (Model.HasOgImage ?? false)
+{
+    <meta property="og:image" content="@Model.OgImageUrl" />
+}
+
+@if (!string.IsNullOrEmpty(Model.CanonicalLinkUrl))
+{
+    <link rel="canonical" href="@Model.CanonicalLinkUrl" />
+}

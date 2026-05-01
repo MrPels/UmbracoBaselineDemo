@@ -1,5 +1,6 @@
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Notifications;
+using UmbracoChild.Handlers;
 
 public class ServicesComposer : IComposer
 {
@@ -14,11 +15,12 @@ public class ServicesComposer : IComposer
         // 3. Registrer din service
         builder.Services.AddScoped<SeoService>();
         builder.Services.AddScoped<PlaywrightCrawlerService>();
+        builder.Services.AddScoped<MediaAiService>();
 
         // Registrer din handler
         builder.AddNotificationHandler<ContentPublishedNotification, SeoPublishHandler>();
-        
-        // Husk også din Media handler til alt-tekster her!
-        // TODO
+
+        // Media handler til WebP-konvertering og auto alt-tekst
+        builder.AddNotificationAsyncHandler<MediaSavedNotification, MediaSavedNotificationHandler>();
     }
 }

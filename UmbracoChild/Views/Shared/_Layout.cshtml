@@ -7,6 +7,10 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="shortcut icon" type="image/x-icon" href="~/ui/favicon.ico" />
+    @if (Model is ISharedSeo)
+    {
+        @await Component.InvokeAsync("Seo", Model as ISharedSeo)
+    }
 </head>
 <body>
     <main role="main">
