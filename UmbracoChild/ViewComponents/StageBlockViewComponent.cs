@@ -1,0 +1,14 @@
+﻿using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.Web;
+using Umbraco.Cms.Web.Common.PublishedModels;
+using UmbracoChild.ViewComponents.Base;
+
+namespace UmbracoChild.ViewComponents
+{
+    public class StageBlockViewComponent : BaseViewComponent<StageBlock>
+    {
+        public StageBlockViewComponent(IUmbracoContextAccessor umbracoContextAccessor, IPublishedValueFallback publishedValueFallback) : base(umbracoContextAccessor, publishedValueFallback)
+        {
+        }
+    }
+}

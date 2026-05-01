@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="shortcut icon" type="image/x-icon" href="~/ui/favicon.ico" />
+</head>
+<body>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+@*     <environment include="Local">
+        <script type="module" src="http://localhost:5173/dist/src/solutions/audi/main.js"></script>
+        <script type="module" src="http://localhost:5173/dist/src/solutions/audi/global.js"></script>
+    </environment>
+    <environment exclude="Local">
+        <script type="module" src="@CacheBustHelper.GetBundleFromManifest("/dist/.vite/manifest.json", "src/solutions/audi/main.js", "/dist/")"></script>
+        <script type="module" src="@CacheBustHelper.GetBundleFromManifest("/dist/.vite/manifest.json", "src/solutions/audi/global.js", "/dist/")"></script>
+    </environment> *@
+
+@*     @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+
+    @await Component.InvokeAsync("GlobalScripts", new { position = "bottomBody" })
+
+    @await Component.InvokeAsync("UmbracoFormsScripts") *@
+</body>
+</html>
