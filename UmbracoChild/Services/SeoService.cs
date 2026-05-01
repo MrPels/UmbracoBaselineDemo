@@ -6,6 +6,7 @@ using Umbraco.Cms.Core.Services;
 // Modellen for AI'ens svar
 public class SeoResponse
 {
+    public string MetaTitle { get; set; } = string.Empty;
     public string MetaDescription { get; set; } = string.Empty;
     public object? JsonLd { get; set; }
 }
@@ -77,11 +78,12 @@ public class SeoService
                 
                 if (!isLocked)
                 {
-                    content.SetValue("seoDescription", seoData.MetaDescription);
+                    content.SetValue("MetaTitle", seoData.MetaTitle);
+                    content.SetValue("MetaDescription", seoData.MetaDescription);
                     
                     // Vi gemmer JSON-LD som en streng
                     var jsonLdString = JsonSerializer.Serialize(seoData.JsonLd);
-                    content.SetValue("jsonLdSchema", jsonLdString);
+                    content.SetValue("SchemaMarkup", jsonLdString);
 
                     // raiseEvents: false er KRITISK for at undgå uendelige loops!
                     // _contentService.Save(content, raiseEvents: false);
