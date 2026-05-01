@@ -22,12 +22,17 @@ public class SeoPublishHandler : INotificationHandler<ContentPublishedNotificati
     {
         foreach (var node in notification.PublishedEntities)
         {
+            // Guard: Skip hvis MetaDescription allerede er udfyldt (undgå uendelig loop)
+            var existingMeta = node.GetValue<string>("metaDescription");
+            if (!string.IsNullOrWhiteSpace(existingMeta))
+                continue;
+
             // Vi henter den absolutte URL (f.eks. /om-os/)
             // Mode.Absolute sikrer at vi får domænet med, hvis det er sat op
             var relativeUrl = _publishedUrlProvider.GetUrl(node.Id);
             
             // Til din lokale demo på Mac:
-            var fullUrl = "https://localhost:44301" + relativeUrl; 
+            var fullUrl = "https://localhost:44359" + relativeUrl;
 
             _taskQueue.QueueBackgroundWorkItemAsync(async token =>
             {

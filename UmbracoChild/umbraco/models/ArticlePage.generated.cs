@@ -97,6 +97,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent CanonicalLink => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetCanonicalLink(this, _publishedValueFallback);
 
 		///<summary>
+		/// lockAiUpdates
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]
+		[ImplementPropertyType("lockAiUpdates")]
+		public virtual bool LockAiUpdates => global::Umbraco.Cms.Web.Common.PublishedModels.SharedSeo.GetLockAiUpdates(this, _publishedValueFallback);
+
+		///<summary>
 		/// metaDescription
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.3.5+1486121")]

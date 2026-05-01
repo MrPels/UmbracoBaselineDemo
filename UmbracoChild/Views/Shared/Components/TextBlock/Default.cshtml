@@ -1,3 +1,8 @@
 ﻿@model TextBlock
 
-<h1>text block todo</h1>
+<section class="text-block">
+    @if (Model.Text != null)
+    {
+        @Html.Raw(Model.Text.ToHtmlString())
+    }
+</section>

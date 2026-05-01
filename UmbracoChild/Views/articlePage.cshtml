@@ -1,5 +1,15 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@{
-	Layout = null;
-}
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ArticlePage>
+
+<article>
+	@if (!string.IsNullOrEmpty(Model.Headline))
+	{
+		<h1>@Model.Headline</h1>
+	}
+	@if (Model.Text != null)
+	{
+		<div class="article-text">
+			@Model.Text
+		</div>
+	}
+</article>

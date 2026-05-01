@@ -4,7 +4,7 @@
     if (Model?.Any() != true) { return; }
 }
 
-<div class="umb-block-grid__layout-container">
+@* <div class="umb-block-grid__layout-container">
     @foreach (var item in Model)
     {
 
@@ -33,4 +33,22 @@
             }
         </div>
     }
-</div>
+</div> *@
+
+@foreach (var item in Model)
+{
+    try
+    {
+        @await Component.InvokeAsync(item.Content.ContentType.Alias.ToFirstUpper(), item)
+    }
+    catch (InvalidOperationException)
+    {
+        <p>
+            <strong>Could not render component of type: @(item.Content.ContentType.Alias.ToFirstUpper())</strong>
+            <br />
+            This likely happened because the partial view <em>@(item.Content.ContentType.Alias.ToFirstUpper())</em> could not be found.
+            <br />
+            Or you dont have a ViewComponent for the block editor.
+        </p>
+    }
+}

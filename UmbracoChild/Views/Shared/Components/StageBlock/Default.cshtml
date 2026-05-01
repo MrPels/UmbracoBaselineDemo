@@ -1,3 +1,16 @@
 ﻿@model StageBlock
 
-<h1>stage block todo</h1>
+<section class="stage-block">
+    @if (Model.Image != null)
+    {
+        <img src="@Model.Image.MediaUrl()" alt="@Model.Image.Name" />
+    }
+    @if (!string.IsNullOrEmpty(Model.Headline))
+    {
+        <h1>@Model.Headline</h1>
+    }
+    @if (!string.IsNullOrEmpty(Model.Text))
+    {
+        <p>@Model.Text</p>
+    }
+</section>

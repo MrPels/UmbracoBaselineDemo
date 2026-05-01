@@ -1,3 +1,14 @@
 ﻿@model ImageBlock
 
-<h1>image block todo</h1>
+<section class="image-block">
+    @if (Model.Image != null)
+    {
+        <figure>
+            <img src="@Model.Image.MediaUrl()" alt="@Model.Image.Name" />
+            @if (!string.IsNullOrEmpty(Model.OverlayText))
+            {
+                <figcaption>@Model.OverlayText</figcaption>
+            }
+        </figure>
+    }
+</section>
