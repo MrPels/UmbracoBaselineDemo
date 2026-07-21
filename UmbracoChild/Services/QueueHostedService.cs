@@ -18,7 +18,7 @@ public class QueueHostedService : BackgroundService
             {
                 await workItem(stoppingToken);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Log fejlen her (f.eks. via ILogger)
             }

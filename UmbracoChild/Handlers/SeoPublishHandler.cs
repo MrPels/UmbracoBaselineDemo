@@ -47,7 +47,7 @@ public class SeoPublishHandler : INotificationHandler<ContentPublishedNotificati
                 {
                     await seoService.RunSeoAutomationAsync(node.Id, fullUrl);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Det er vigtigt med en try-catch her, så baggrundskøen ikke dør ved fejl
                     // Du kan logge fejlen her via en ILogger hvis du har en

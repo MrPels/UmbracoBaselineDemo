@@ -67,10 +67,10 @@ namespace UmbracoChild.Controllers.Api
 
     public class RedirectUmbracoModel
     {
-        public string From { get; set; }
+        public string? From { get; set; }
         public string? To { get; set; }
-        public string StatusCode { get; set; }
+        public string? StatusCode { get; set; }
         public bool? Disabled { get; set; }
-        public string Edit { get; set; }
+        public string? Edit { get; set; }
     }
 }

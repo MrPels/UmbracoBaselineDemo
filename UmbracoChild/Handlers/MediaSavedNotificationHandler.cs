@@ -79,7 +79,7 @@ namespace UmbracoChild.Handlers
 
                 // Queue AI alt text generation as a background task
                 var mediaId = mediaItem.Id;
-                _taskQueue.QueueBackgroundWorkItemAsync(async token =>
+                await _taskQueue.QueueBackgroundWorkItemAsync(async token =>
                 {
                     using var scope = _scopeFactory.CreateScope();
                     var mediaService = scope.ServiceProvider.GetRequiredService<IMediaService>();
