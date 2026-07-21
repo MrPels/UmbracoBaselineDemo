@@ -15,9 +15,11 @@
 	
   <ItemGroup>
     <PackageReference Include="Examine" />
+    <PackageReference Include="Microsoft.OpenApi" />
     <PackageReference Include="Microsoft.Playwright" />
     <PackageReference Include="Microsoft.SemanticKernel" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" />
     <PackageReference Include="Umbraco.Cms" />
   </ItemGroup>
 
