@@ -10,9 +10,9 @@
     <!-- Umbraco packages -->
     <PackageVersion Include="Microsoft.OpenApi" Version="2.11.0" />
     <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.12" />
-    <PackageVersion Include="Umbraco.Cms" Version="17.5.3" />
-    <PackageVersion Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.5.3" />
-    <PackageVersion Include="Umbraco.Forms" Version="17.4.6" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.8.1" />
+    <PackageVersion Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.8.1" />
+    <PackageVersion Include="Umbraco.Forms" Version="17.6.2" />
     <!-- Third-party packages -->
     <PackageVersion Include="Examine" Version="3.9.0" />
     <PackageVersion Include="uSync" Version="17.3.6" />
