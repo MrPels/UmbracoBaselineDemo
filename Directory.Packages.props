@@ -8,19 +8,19 @@
   <!-- Central package version definitions -->
   <ItemGroup>
     <!-- Umbraco packages -->
-    <PackageVersion Include="Microsoft.OpenApi" Version="2.11.0" />
-    <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.12" />
+    <PackageVersion Include="Microsoft.OpenApi" Version="2.13.0" />
+    <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.14" />
     <PackageVersion Include="Umbraco.Cms" Version="17.8.1" />
     <PackageVersion Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.8.1" />
     <PackageVersion Include="Umbraco.Forms" Version="17.6.2" />
     <!-- Third-party packages -->
-    <PackageVersion Include="Examine" Version="3.9.0" />
-    <PackageVersion Include="uSync" Version="17.3.6" />
+    <PackageVersion Include="Examine" Version="3.10.1" />
+    <PackageVersion Include="uSync" Version="17.6.2" />
     <!-- Microsoft packages -->
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.10" />
-    <PackageVersion Include="Microsoft.Playwright" Version="1.61.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel" Version="1.78.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.78.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Playwright" Version="1.64.1" />
+    <PackageVersion Include="Microsoft.SemanticKernel" Version="1.82.0" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.82.0" />
   </ItemGroup>
 </Project>
