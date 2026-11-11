@@ -1,11 +1,12 @@
-﻿using Umbraco.Cms.Core.Events;
+﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Webp;
+using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Webp;
-
+using uSync.BackOffice.Services;
+z
 namespace UmbracoChild.Handlers
 {
     public class MediaSavedNotificationHandler : INotificationAsyncHandler<MediaSavedNotification>
@@ -16,21 +17,31 @@ namespace UmbracoChild.Handlers
         private readonly MediaFileManager _mediaFileManager;
         private readonly IBackgroundTaskQueue _taskQueue;
         private readonly IServiceScopeFactory _scopeFactory;
+        private readonly ISyncEventService _usyncEventService;
 
         public MediaSavedNotificationHandler(
             IMediaService mediaService,
             MediaFileManager mediaFileManager,
             IBackgroundTaskQueue taskQueue,
-            IServiceScopeFactory scopeFactory)
+            IServiceScopeFactory scopeFactory,
+            ISyncEventService syncEventService)
         {
             _mediaService = mediaService;
             _mediaFileManager = mediaFileManager;
             _taskQueue = taskQueue;
             _scopeFactory = scopeFactory;
+            _usyncEventService = syncEventService;
         }
 
         public async Task HandleAsync(MediaSavedNotification notification, CancellationToken cancellationToken)
         {
+            // This checks ensures we do not use unecessary resources to handle media when uSync complete
+            // is running (First pass, Second pass, Publisher or Exporter)
+            if (_usyncEventService.IsPaused)
+            {
+                return;
+            }
+
             foreach (var mediaItem in notification.SavedEntities)
             {
                 if (!mediaItem.ContentType.Alias.Equals("Image", StringComparison.OrdinalIgnoreCase))
